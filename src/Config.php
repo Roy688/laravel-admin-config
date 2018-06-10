@@ -2,10 +2,7 @@
 
 namespace Roy688\Config;
 
-use Roy688\Admin;
-use Roy688\Extension;
-
-class Config extends Extension
+class Config extends \Encore\Admin\Extension
 {
     /**
      * Load configure into laravel from database.
@@ -27,8 +24,7 @@ class Config extends Extension
     public static function boot()
     {
         static::registerRoutes();
-
-        Admin::extend('config', __CLASS__);
+        \Encore\Admin\Admin::extend('config', __CLASS__);
     }
 
     /**

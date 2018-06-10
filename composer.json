@@ -3,7 +3,7 @@
     "description": "Config extension for laravel-admin.",
     "type": "library",
     "keywords": ["laravel-admin", "laravel-admin-extensions"],
-    "homepage": "https://github.com/laravel-admin-extensions/config",
+    "homepage": "https://github.com/roy688/laravel-admin-config",
     "license": "MIT",
     "authors": [
         {
