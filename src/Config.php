@@ -1,9 +1,9 @@
 <?php
 
-namespace Encore\Admin\Config;
+namespace Roy688\Config;
 
-use Encore\Admin\Admin;
-use Encore\Admin\Extension;
+use Roy688\Admin;
+use Roy688\Extension;
 
 class Config extends Extension
 {
@@ -14,7 +14,7 @@ class Config extends Extension
      */
     public static function load()
     {
-        foreach (ConfigModel::all(['name', 'value']) as $config) {
+        foreach(ConfigModel::all(['name', 'value']) as $config) {
             config([$config['name'] => $config['value']]);
         }
     }
@@ -39,10 +39,12 @@ class Config extends Extension
     protected static function registerRoutes()
     {
         parent::routes(function ($router) {
-            /* @var \Illuminate\Routing\Router $router */
+            /**
+             * @var \Illuminate\Routing\Router $router
+             */
             $router->resource(
                 config('admin.extensions.config.name', 'config'),
-                config('admin.extensions.config.controller', 'Encore\Admin\Config\ConfigController')
+                config('admin.extensions.config.controller', 'Roy688\Config\ConfigController')
             );
         });
     }
@@ -53,7 +55,6 @@ class Config extends Extension
     public static function import()
     {
         parent::createMenu('Config', 'config', 'fa-toggle-on');
-
         parent::createPermission('Admin Config', 'ext.config', 'config*');
     }
 }

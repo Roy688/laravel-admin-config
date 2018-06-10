@@ -1,6 +1,6 @@
 <?php
 
-namespace Encore\Admin\Config;
+namespace Roy688\Config;
 
 use Illuminate\Support\ServiceProvider;
 
@@ -11,10 +11,10 @@ class ConfigServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        if ($this->app->runningInConsole()) {
+        if($this->app->runningInConsole()) {
             $this->loadMigrationsFrom(__DIR__.'/../database/migrations');
         }
-
+        
         Config::boot();
     }
 }

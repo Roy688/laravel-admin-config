@@ -1,14 +1,14 @@
 {
-    "name": "laravel-admin-ext/config",
-    "description": "Config extension for laravel-admin",
+    "name": "roy688/laravel-admin-config",
+    "description": "Config extension for laravel-admin.",
     "type": "library",
-    "keywords": ["laravel-admin", "setting"],
+    "keywords": ["laravel-admin", "laravel-admin-extensions"],
     "homepage": "https://github.com/laravel-admin-extensions/config",
     "license": "MIT",
     "authors": [
         {
-            "name": "z-song",
-            "email": "zosong@126.com"
+            "name": "RoyThia",
+            "email": "slaythia@gmail.com"
         }
     ],
     "require": {
@@ -22,13 +22,13 @@
     },
     "autoload": {
         "psr-4": {
-            "Encore\\Admin\\Config\\": "src/"
+            "Roy688\\Config\\": "src/"
         }
     },
     "extra": {
         "laravel": {
             "providers": [
-                "Encore\\Admin\\Config\\ConfigServiceProvider"
+                "Roy688\\Config\\ConfigServiceProvider"
             ]
         }
     }

@@ -1,6 +1,6 @@
 <?php
 
-namespace Encore\Admin\Config;
+namespace Roy688\Config;
 
 use Illuminate\Database\Eloquent\Model;
 
@@ -19,4 +19,25 @@ class ConfigModel extends Model
 
         $this->setTable(config('admin.extensions.config.table', 'admin_config'));
     }
+    
+    /**
+     * getTypeSelectOptions
+     * 
+     * @return array
+     */
+    public function getTypeSelectOptions()
+    {
+        return [
+            'string', 'select', 'array', 'text', 'number', 'date', 'time', 'datetime', 'image', 'file', 'checkbox', 'radio',
+        ];
+    }
+
+    /**
+     * config_category_model
+     * @return Roy688\Config\ConfigCategoryModel
+     */
+    public function config_category_model() {
+        return $this->hasOne('Roy688\Config\ConfigCategoryModel');
+    }
+
 }
