@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateConfigTable extends Migration
+class CreateConfigTypeTable extends Migration
 {
     /**
      * Run the migrations.
@@ -15,16 +15,16 @@ class CreateConfigTable extends Migration
     {
         $connection = config('admin.database.connection') ?: config('database.default');
 
-        $table = config('admin.extensions.config.table', 'admin_config');
+        $table = config('admin.extensions.config_type.table', 'admin_config_type');
 
         Schema::connection($connection)->create($table, function (Blueprint $table) {
             $table->increments('id');
-            $table->string('config_type_id');
+            $table->integer('parent_id')->default(0);
+            $table->integer('order');
+
             $table->string('name')->unique();
-            $table->text('value');
-            $table->string('type');
             $table->string('title');
-            $table->text('description')->nullable();
+
             $table->timestamps();
         });
     }
@@ -38,7 +38,7 @@ class CreateConfigTable extends Migration
     {
         $connection = config('admin.database.connection') ?: config('database.default');
 
-        $table = config('admin.extensions.config.table', 'admin_config');
+        $table = config('admin.extensions.config_type.table', 'admin_config_type');
 
         Schema::connection($connection)->dropIfExists($table);
     }
